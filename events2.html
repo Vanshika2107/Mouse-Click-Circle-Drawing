@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color:beige;
+        }
+        </style>   
+</head>
+<body>
+    <div class="container">
+        <svg width="100%" height="100%">
+        </svg>
+    </div>
+    <script>
+        let container = document.querySelector('.container');
+        container.addEventListener('click', (event) => {
+            let x = event.clientX;
+            let y = event.clientY;
+            let c=document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            c.setAttribute("cx", x);
+            c.setAttribute("cy", y);    
+            c.setAttribute("r", 20);
+            let colors=["red", "blue", "green", "yellow", "orange", "purple"];
+            let i=colors[Math.floor(Math.random()*colors.length)];
+            c.setAttribute("fill", i);
+            container.querySelector('svg').appendChild(c);
+
+
+        });
+    </script>
+</body>
+</html>
